@@ -1,24 +1,27 @@
 import React from "react";
 import Card from "./Card";
 import contacts from "../contacts";
+import Avatar from "./Avatar";
+
+function createCard(contact){
+  return(
+    <Card
+      key={contact.id}
+      name={contact.name}
+      img={contact.imgURL}
+      tel={contact.phone}
+      email={contact.email}
+      />
+  );
+}
+
 function App() {
   return (
     <div>
-      <h1 className="heading">DIWALI FARAL</h1>
-      <Card
-        name={contacts[0].name}
-        img={contacts[0].img}
-        tel={contacts[0].tel}
-        mail={contacts[0].mail}
-      />
+      <h1 className="heading">My Faral</h1>
+      <Avatar img="https://miro.medium.com/v2/resize:fit:2400/1*RheGhOMeziP_24PEnbjBhQ.jpeg"/>
+      {contacts.map(createCard)}
 
-      <Card 
-        name={contacts[1].name}
-        img={contacts[1].img}
-        tel={contacts[1].tel}
-      />
-
-      
     </div>
   );
 }
